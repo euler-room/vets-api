@@ -11,6 +11,7 @@ class Lighthouse::HCC::InvoiceSerializer
              :facility,
              :external_id,
              :latest_billing_ref,
+             :date,
              :current_balance,
              :previous_balance,
              :previous_unpaid_balance
