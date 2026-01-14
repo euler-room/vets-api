@@ -191,6 +191,14 @@ RSpec.describe Rack::Attack do
 
       expect(last_response).to have_http_status(:too_many_requests)
     end
+
+    it 'does not throttle a different IP' do
+      other_headers = { 'X-Real-Ip' => '4.3.2.1' }
+
+      post endpoint, params, other_headers
+
+      expect(last_response).to have_http_status(:ok)
+    end
   end
 
   describe 'education_benefits_claims/v0/ip' do
