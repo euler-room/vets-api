@@ -59,7 +59,7 @@ class Rack::Attack
   throttle('ask_va_api/zip_state_validation', limit: 10, period: 1.minute) do |req|
     req.remote_ip if req.path == '/ask_va_api/v0/zip_state_validation' &&
                      req.post? &&
-                     !Settings.vsp_environment.match?(/local|development|staging/)
+                     Settings.vsp_environment.eql?('production')
   end
 
   # Always allow requests from below IP addresses for load testing
