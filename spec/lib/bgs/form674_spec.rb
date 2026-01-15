@@ -16,11 +16,6 @@ RSpec.describe BGS::Form674 do
     allow_any_instance_of(SavedClaim::DependencyClaim).to receive(:pdf_overflow_tracking)
   end
 
-  after do
-    # Clean up any Flipper stubs to prevent test pollution in parallel runs
-    RSpec::Mocks.space.reset_all
-  end
-
   context 'The system is able to submit 674s automatically' do
     # @TODO: may want to return something else
     it 'returns a hash with proc information' do
