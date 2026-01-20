@@ -71,10 +71,10 @@ module IncreaseCompensation
     def self.signature_text_for(form_data)
       form_data['statement_of_truth_signature'].presence ||
         form_data['signature'].presence ||
-        veterant_full_name(form_data)
+        veteran_full_name(form_data)
     end
 
-    def self.veterant_full_name(form_data)
+    def self.veteran_full_name(form_data)
       [
         form_data.dig('veteranFullName', 'first'),
         form_data.dig('veteranFullName', 'last')
